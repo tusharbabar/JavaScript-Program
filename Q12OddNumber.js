@@ -3,7 +3,7 @@ Description: Write a program to print all odd numbers between 1 and n.
 Input: n = 10 */
 
 
-Output: 1 3 5 7 9
+//Output: 1 3 5 7 9
 
 let n=100;
 let i=1;
