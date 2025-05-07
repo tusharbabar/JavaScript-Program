@@ -1,3 +1,12 @@
+/*11. Even Numbers
+Description: Write a program to print all even numbers between 1 and n.
+Input: n = 10
+
+
+Output: 2 4 6 8 10
+*/
+
+
 let n=100;
 let i=1;
 let result="";
