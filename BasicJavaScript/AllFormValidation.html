@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Validation</title>
+    <link rel="stylesheet" href="first.css">
+    <script type="text/javascript">
+    function validateName(str)
+	{ 
+       str=str.toLowerCase();   //Name validation
+	   let flag=true;
+	   let span=document.getElementById("s");
+	   for(var i=0;i<str.length; i++)
+	   {
+	       if(!(str.charCodeAt(i)>=97 && str.charCodeAt(i)<=122))
+		   { 
+             flag=false;  
+		   }
+	   }
+	   if(flag)
+	   { span.innerHTML="";
+		 span.style.color="green";
+		span.style.padding="3px";
+	   }
+	   else{
+	     span.innerHTML="Invalid name";
+		 span.style.color="red";
+		 span.style.padding="3px";
+	   }
+	}
+    //Email validation
+     function validateEmail(str)
+     {  
+	     let index=str.indexOf("@");  
+		 let index1=str.lastIndexOf("@");  
+		 let span=document.getElementById("E");
+		  if(index<=0 || index!=index1)    
+		  {  
+             span.innerHTML="Invalid email";
+			  span.style.color="red";
+              
+		  }
+		  else
+		  {   let as=str.substring((index+1));
+              index=as.indexOf(".");
+	          index1=as.lastIndexOf(".");
+	          if((index==-1 || index!=index1) || (index!=(as.length-4) && index!=(as.length-3) ))
+			   { span.innerHTML="Invalid email";
+			     span.style.color="Green";
+			   }
+			   else{
+			    span.innerHTML="valid email ";
+			     span.style.color="color";
+			  }
+		  }
+		
+	  }
+	  //number validation
+	  function validateNumber(str)
+	  {
+		let len=str.length;
+		let flag=false;
+		for(let i=0;i<len;i++)
+	  {
+		let ascii=str.charCodeAt(i);
+		if(!((ascii>=48 && ascii<=57)&& str.length==10))
+	  {
+		flag=true;
+		break;
+	  }
+	  }
+     if(flag)
+	 {
+		document.getElementById("n").innerHTML="Invalid contact";
+		document.getElementById("n").style.color="red";
+	 }else{
+		document.getElementById("n").innerHTML="valid contact";
+		document.getElementById(n).style.color="green";
+	 }
+
+ }
+
+ //password validation
+ let sccount=0,dcount=0,ucount=0,lcount=0;
+ function validatePassword(str)
+ {
+    if(str.length<=8)
+ {
+	document.getElementById("p").innerHTML="invalid password";
+ }else{
+	for(let i=0;i<str.length;i++)
+ {
+	if((str.charCodeAt(i)>=65 && str.charCodeAt(i)<=90))
+ {
+	ucount++;
+ }
+ if((str.charCodeAt(i)>=97 && str.charCodeAt(i)<=122))
+   {
+	lcount++;
+   }
+   if((str.charCodeAt(i)>=48 && str.charCodeAt(i)<=57))
+   {
+	dcount++;
+   }
+   if(!((str.charCodeAt(i)>=65 && str.charCodeAt(i)<=90)|| (str.charCodeAt(i)>=97 && str.charCodeAt(i)<=122)||(str.charCodeAt(i)>=97 && str.charCodeAt(i)<=122)))
+   {
+	sccount++;
+   }
+}
+if(sccount>=1 && dcount>=1 && ucount>=1 && lcount>=1)
+{
+	document.getElementById("p").innerHTML="valid Password";
+}else{
+	document.getElementById("p").innerHTML="invalid password";
+   }
+
+ }
+
+ }
+
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="contain">
+            <h1>Log_ In Form</h1><br>
+            <div class="one">
+                <br>
+              <input type='text' name='name' value='' placeholder="enter your name"
+               onkeyup='validateName(this.value)' >
+               <span id="s"></span> 
+               <br><br>
+               <input type='text' name='email' value='' placeholder=" enter your email"
+               onkeyup='validateEmail(this.value)' >
+               <span id="E"></span> 
+               <br><br>
+               <input type='text' name='contact' value='' placeholder=" enter your contact"
+               onkeyup='validateNumber(this.value)' >
+               <span id="n"></span> 
+               <br><br>
+               <input type='text' name='password' value='' placeholder=" enter your password"
+               onkeyup='validatePassword(this.value)'>
+               <span id="p"></span> 
+               <br><br>
+               <input type="text" name="" id="" placeholder="enter your age">
+               <br><br>
+               <button id="but"> Sign in</button><br>
+			   <br>
+			   <p><u>Sign in ?<a href=""> Forget Password</a></u></p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+</html>
